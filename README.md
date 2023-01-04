@@ -6,6 +6,8 @@ This project is designed to help those who need a new and secure password for th
 
 ## Usage
 
+[Deployed Webpage](https://codedevlogan.github.io/Random-Pass-Gen/)
+
 To use this application, first load the provided URL, then manuvere the mouse to click on the "Generate Password" Button, then answer the prompts given and recieve your new, secure password.
 
 ![Application Image](./assets/images/_C__Users_Logan%2520School_bootcamp_Random-Pass-Gen_index.html.png)
@@ -26,7 +28,3 @@ HTML and CSS:
 ## License
 
 No Liscense
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
