@@ -1,26 +1,32 @@
-# Password Generator Starter Code
+# <Random-Pass-Gen>
 
-# User Story
-- AS AN employee with access to sensitive data
-- I WANT to randomly generate a password that meets certain criteria
-- SO THAT I can create a strong password that provides greater security
+## Description
 
-# Acceptance Criteria
-- GIVEN I need a new, secure password
-- WHEN I click the button to generate a password
-- THEN I am presented with a series of prompts for password criteria
-- WHEN prompted for password criteria
-- THEN I select which criteria to include in the password
-- WHEN prompted for the length of the password
-- THEN I choose a length of at least 8 characters and no more than 128 characters
-- WHEN asked for character types to include in the password
-- THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-- WHEN I answer each prompt
-- THEN my input should be validated and at least one character type should be selected
-- WHEN all prompts are answered
-- THEN a password is generated that matches the selected criteria
-- WHEN the password is generated
-- THEN the password is either displayed in an alert or written to the page
+This project is designed to help those who need a new and secure password for their secure application's login. It was designed to help improve the lives of the people who use it by helping reduce stress when creating new passwords.
 
-## List of Webpages to Credit
-- https://owasp.org/www-community/password-special-characters
+## Usage
+
+To use this application, first load the provided URL, then manuvere the mouse to click on the "Generate Password" Button, then answer the prompts given and recieve your new, secure password.
+
+![Application Image](./assets/images/_C__Users_Logan%2520School_bootcamp_Random-Pass-Gen_index.html.png)
+  
+
+## Credits
+
+[OWASP Special Characters](https://owasp.org/www-community/password-special-characters)
+
+### Contributors
+
+Main JavaScript Logic:
+[Logan Peterson](https://github.com/codeDevLogan)
+
+HTML and CSS:
+[Xandromus](https://github.com/Xandromus)
+
+## License
+
+No Liscense
+
+## Tests
+
+Go the extra mile and write tests for your application. Then provide examples on how to run them here.

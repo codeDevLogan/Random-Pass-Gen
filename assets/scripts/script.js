@@ -14,11 +14,15 @@ let hasSpecCase;
 let numOfTypes = 0;
 
 /* getYorN
-
+Use: The getYorN function recieves a boolean value from the user as prompted by the given message.
+Call with: getYorN(msg);
+msg: A string recieved from the user to prompt the user with.
 */
 function getYorN(msg){
   let YorN = confirm(msg);
-  numOfTypes++;
+  if(YorN){
+    numOfTypes++;
+  }
   return YorN;
 }
 /* getRandom
@@ -81,6 +85,10 @@ function getUserAnswers(){
   hasNum = getYorN("Would you like the password to include: Numeric Characters?");
   hasSpecCase = getYorN("Would you like the password to include: Special Characters?");
 }
+/* confirmUserAnsweredNonNull
+Use: The confirmUserAnsweredNonNull function is used to ensure the user answered at least one of the screen prompts for character types.
+Call with: confirmUserAnsweredNonNull();
+*/
 function confirmUserAnsweredNonNull(){
   if(!hasLowerCase && !hasUpperCase && !hasNum && !hasSpecCase){
     if(confirm("You have selected no character types for your password. This will generate a blank password. Would you like to generate a new password?")){
@@ -150,8 +158,9 @@ Call with: generatePassword();
 function generatePassword(){
   let passToReturn = "";
   let randomNumForCharacterGen = getRandom(1, 4);
-  console.log("Generate Password");
-  console.log(randomNumForCharacterGen);
+  numOfTypes = 0;
+  boolArray = [false, false, false, false];
+
   passLength = window.prompt("How long would you like the password to be? (Between 8 and 128 characters in length)");
   while(!isValidPassLength(passLength)){
     passLength = window.prompt("How long would you like the password to be? (Between 8 and 128 characters in length)");
@@ -164,22 +173,17 @@ function generatePassword(){
     console.log("Answers were null");
     return passToReturn;
   }
-  while(passToReturn.length<passLength){
+  while(passToReturn.length<parseInt(passLength)){
     if(randomNumForCharacterGen == 1){
-      console.log("Random Number Check");
       if(hasLowerCase){
-        //console.log("Has Lower Case");
         passToReturn = passToReturn + lowerCaseArray[getRandom(0, (lowerCaseArray.length-1))];
-        //console.log(hasThatType(passToReturn, randomNumForCharacterGen));
         if(hasThatType(passToReturn, randomNumForCharacterGen)){
           numOfTypes--;
         }
       }
     }
     if(randomNumForCharacterGen == 2){
-      //console.log("Random Number Check");
       if(hasUpperCase){
-        //console.log("Has Upper Case");
         passToReturn = passToReturn + upperCaseArray[getRandom(0, (upperCaseArray.length-1))];
         if(hasThatType(passToReturn, randomNumForCharacterGen)){
           numOfTypes--;
@@ -187,9 +191,7 @@ function generatePassword(){
       }
     }
     if(randomNumForCharacterGen == 3){
-      //console.log("Random Number Check");
       if(hasNum){
-        //console.log("Has Numbers");
         passToReturn = passToReturn + numericArray[getRandom(0, (numericArray.length-1))];
         if(hasThatType(passToReturn, randomNumForCharacterGen)){
           numOfTypes--;
@@ -197,9 +199,7 @@ function generatePassword(){
       }
     }
     if(randomNumForCharacterGen == 4){
-      //console.log("Random Number Check");
       if(hasSpecCase){
-        //console.log("Has Spec Case");
         passToReturn = passToReturn + specArray[getRandom(0, (specArray.length-1))];
         if(hasThatType(passToReturn, randomNumForCharacterGen)){
           numOfTypes--;
@@ -207,14 +207,11 @@ function generatePassword(){
       }
     }
     randomNumForCharacterGen = getRandom(1, 4);
-    //console.log(numOfTypes);
-    //console.log(randomNumForCharacterGen);
     // The point of this if statement is to ensure the password generated will contain each of the requested character types at least once.
-    if(passToReturn.length === passLength-1 && numOfTypes <= 0){
+    if(passToReturn.length === passLength-1 && numOfTypes > 0){
       passToReturn = '';
     }
   }
-  //console.log(passToReturn);
   return passToReturn;
 }
 
